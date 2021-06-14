@@ -51,13 +51,14 @@ function isCapturedFile(file) {
 }
 
 function isDuplicatedFile(files, file) {
+  //
   if (!file.startsWith('IMG_') || file.startsWith('IMG_E')) {
     return false;
   }
 
   const edited = `IMG_E${file.split('_')[1]}`;
-  const found = files.find((f) => f.includes(edited));
-  return !!found;
+  const found = files.includes(edited);
+  return found;
 }
 
 function move(file, targetDir) {
